@@ -24,21 +24,33 @@
 'use strict';
 let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?',"");
 
-let personalMovieDB = {
-    count:0,
-    movies:{},
-    actors:{},
-    genres:[],
-    privat:false
-
-} 
-let film = prompt('Один из последних просмотренных фильмов',"");
-let mark = prompt("На сколько оцените его","");
-personalMovieDB.movies[film] = mark;
-console.log(personalMovieDB)
 
 
 
 
 
 
+
+let ccc = '4561wew6';
+
+function maskify(str) {
+    // let num = cc.split('');
+    // let result = '';
+    // for(i = 0; i < num.length; i++) {
+    //     if(i < num.length-4) {
+    //         result += "#"
+    //     } else {
+    //         result += num[i]
+    //     }
+    // }
+    // console.log(result);
+    
+    if (str.length <= 4) {
+        return str;
+      }
+      // Otherwise, return the string with all but the last four characters masked
+      return '#'.repeat(str.length - 4) + str.slice(-4);
+  }
+  
+
+console.log(maskify(ccc));

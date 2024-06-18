@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const shops = [
+            {rice: 500},
+            {oil:300},
+            {brad: 60}
+        ];
+        
+        const budget = [500, 400, 2000];
+
+        const map = new Map([
+            [{peper: 500}, 399]
+        ]);
+
+        shops.forEach((shop, i) => {
+            map.set(shop, budget[i])
+        })
+        console.log(map.get(shops[0]))
+        console.log(map.has(shops[0]))
+        console.log(map)
+        // delete clear size
+
+        // maps.keys();
+        for (let shop of map.keys()) {
+            console.log(shop)
+        }
+    </script>
+</body>
+</html>
