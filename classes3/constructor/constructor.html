@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        `use strict`
+
+        // const num = new Function(3);
+        // console.log(num)
+
+        function User(name, id) {
+            this.name = name;
+            this.id = id;
+            this.human = true;
+            this.hello = function() {
+                console.log(`Hello ${this.name}`)
+            }
+        }
+        User.prototype.exit = function() {
+            console.log(`Admin ${this.name} exit`)
+        }
+        const Ivan = new User('Ivan', 28);
+        const alex = new User('alex', 30);
+        
+        Ivan.exit();
+        Ivan.hello();
+
+        console.log(Ivan);
+        console.log(alex);
+    </script>
+</body>
+</html>

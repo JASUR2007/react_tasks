@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>hello</div>
+<script>
+    let personalMovieDB = {
+    count:0,
+    movies:{},
+    actors:{},
+    genres:[],
+    privat:false
+
+} 
+
+
+for (let i = 0; i < 2; i++) {
+    let film = prompt('Один из последних просмотренных фильмов',""),
+    mark = prompt("На сколько оцените его","");
+    
+    if (film != null && mark != null && film != '' && mark != '' && film.length < 50) {
+        personalMovieDB.movies[film] = mark;
+        console.log('done')
+    } else {
+        console.log('error')
+        i--;
+    }
+    
+}
+
+console.log(personalMovieDB)
+//<!-- если строку прибавить к числу то выйдет строка  это канкардинация-->
+ console.log(4 + +'object')//Nan
+console.log(4+ +'5')//9
+
+let incr = 10,
+    decr = 10;
+
+//postfix 
+incr++;
+decr--;
+
+// prefix
+++incr;
+--decr;
+// no differences but
+
+
+console.log(++incr)//11
+console.log(incr++)//10
+
+
+// or ||
+//and && 
+</script>    
+</body>
+</html>

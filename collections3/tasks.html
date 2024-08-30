@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // amountOfPages(185) => 97
+
+        function amountOfPages(summary){
+            let num = '';
+            let numeric = 0;
+            for (let i = 1; i <= summary; i++) {
+                num += i
+                if (summary == num.length) {
+                    numeric = i
+                    break
+                }
+            }   
+            console.log(numeric)
+            
+        }
+        amountOfPages(1095)
+
+
+        function isPangram(string) {
+            return new Set(string.toLocaleLowerCase().replace(/[^a-z]/gi, '').split('')).size === 26;
+        }
+        console.log(isPangram('The quick brown fox jumps over the lazy dog')) 
+
+
+
+        // function deepCount(a){
+        //     let num = 0
+        //     for (let i = 0; i < a.length; i++) {
+        //         if(typeof(a[i]) === 'object') {
+        //             num  = num + 1;  
+        //             let numbers = deepCount(a,num);
+        //             num = numbers[1];
+        //             a = a[i];
+        //         }   else {
+        //             num +=1
+        //         }
+        //     return num;
+
+        //     }    
+        // }    
+        // console.log(deepCount([1, 2, [3, 4, [5]]]));
+        function deepCount(a) {
+            let num = 0;debugger;
+            
+            for (let i = 0; i < a.length; i++) {
+                num++;debugger;  // Count the element itself
+                if (Array.isArray(a[i])) {
+                    num += deepCount(a[i]); debugger; // Add the count of elements in the nested array
+                }
+            }
+            
+            return num;debugger;
+        }
+
+        console.log(deepCount([1, 2, [3, 4, [5]]])); 
+        let user = {
+            name: "Вася"
+            };
+
+let id = Symbol("id");
+
+user[id] = 1;
+
+console.log( user ); // мы можем получить доступ к данным по ключу-символу
+    </script>
+</body>
+</html>
