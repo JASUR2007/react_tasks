@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const log = function(a, b, ...rest) {
+            console.log(a, b, rest);
+        }
+        log('basic', 'rest', 'operatior', 'usage');
+
+        function calcOrDouble(number, basic = 2) {
+            console.log(number * basic);
+        }
+        calcOrDouble(3,5);
+    </script>
+</body>
+</html>
