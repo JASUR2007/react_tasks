@@ -1,37 +1,23 @@
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
-import MarvelService from '../../services/MarvelService';
+import useMarvelService from '../../services/MarvelService';
 import Spinner from '../Spinner/Spinner'
 import ErrorMis from '../errorMis/ErrorMis'
 import { useState, useEffect } from 'react';
 const RandomChar = () => {
     const [char, SetChar] = useState({});
-    const [loading, SetLoading] = useState(true);
-    const [error, SetError] = useState(false);
+    const {loading, error, getCharacter, ClearError} = useMarvelService();
     useEffect(() => {
         updateChar();
     }, []);
-
-    const marvelService = new MarvelService();
     const onChatLoaded = (char) => {
         SetChar(char);
-        SetLoading(false);
-    }
-    const onError = () => {
-        SetLoading(false);
-        SetError(true);
     }
     const updateChar = () => {
+        ClearError();
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
-        marvelService
-        .getCharacter(id)
-        .then(onChatLoaded)
-        .catch(onError);
-    }
-    const randomHero = () => {
-        SetLoading(true)
-        updateChar();
-
+        getCharacter(id)
+         .then(onChatLoaded)
     }
     const errorMessage = error ? <ErrorMis/> : null;
     const spinner = loading ? <Spinner/> : null;
@@ -50,7 +36,7 @@ const RandomChar = () => {
                     Or choose another one
                 </p>
                 <button className="button button__main">
-                    <div className="inner" onClick={randomHero}>try it</div>
+                    <div className="inner" onClick={updateChar}>try it</div>
                 </button>
                 <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
             </div>
@@ -66,7 +52,7 @@ const View = (char) => {
         <img src={thumbnail} alt="Random character" 
             className={thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg' 
                 ? 'randomchar__img object-fit' 
-              : 'randomchar__img'}/>
+                : 'randomchar__img'}/>
         <div className="randomchar__info">
             <p className="randomchar__name">{name}</p>
             <p className="randomchar__descr">
